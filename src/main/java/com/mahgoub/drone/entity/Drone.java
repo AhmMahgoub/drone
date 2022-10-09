@@ -23,13 +23,13 @@ public class Drone {
     private String serialNumber;
 
     @Column(name = "weight", nullable = false)
-    @Size(max = 500, message = ExceptionMessages.INVALID_WEIGHT_VALUE)
+    @Size(max = 500, message = ExceptionMessages.INVALID_MAX_WEIGHT_VALUE)
     @NotBlank(message = ExceptionMessages.MISSING_REQUEST_PARAMETERS)
     private Integer weight ;
 
     @NotBlank(message = ExceptionMessages.MISSING_REQUEST_PARAMETERS)
-    @Size(max = 100, message = ExceptionMessages.INVALID_SERIAL_NUMBER_LENGTH)
-    private Integer batteryPercentage;
+    @Size(max = 100)
+    private Integer batteryPercentage = 100;
 
     @Enumerated(EnumType.ORDINAL)
     @NotBlank(message = ExceptionMessages.MISSING_REQUEST_PARAMETERS)
