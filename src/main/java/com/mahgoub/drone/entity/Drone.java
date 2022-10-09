@@ -2,6 +2,9 @@ package com.mahgoub.drone.entity;
 
 import com.mahgoub.drone.enums.ModelEnum;
 import com.mahgoub.drone.enums.StateEnum;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +14,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = "drone")
+@Getter
+@Setter
+@ToString
 public class Drone {
 
     @Id
@@ -29,6 +36,7 @@ public class Drone {
 
     @NotBlank(message = ExceptionMessages.MISSING_REQUEST_PARAMETERS)
     @Size(max = 100)
+    @Column(name = "battery_percentage", nullable = false)
     private Integer batteryPercentage = 100;
 
     @Enumerated(EnumType.ORDINAL)

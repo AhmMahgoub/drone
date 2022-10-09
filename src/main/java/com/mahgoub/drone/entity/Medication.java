@@ -1,11 +1,19 @@
 package com.mahgoub.drone.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = "medication")
+@Getter
+@Setter
+@ToString
 public class Medication {
 
     @Id
