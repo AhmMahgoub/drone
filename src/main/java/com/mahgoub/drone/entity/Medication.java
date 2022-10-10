@@ -5,9 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "medication")
@@ -18,7 +17,7 @@ public class Medication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @Column(name = "name", nullable = false)
     @Pattern(regexp = "^[a-zA-Z0-9_-]*$", message = ExceptionMessages.INVALID_MEDICATION_NAME_PATTERN)
@@ -35,8 +34,11 @@ public class Medication {
     private String image;
 
     @Column(name = "weight", nullable = false)
-    @Size(min = 10, message = ExceptionMessages.INVALID_MIN_WEIGHT_VALUE)
-    @NotBlank(message = ExceptionMessages.MISSING_REQUEST_PARAMETERS)
+    @Min(value = 10, message = ExceptionMessages.INVALID_MIN_WEIGHT_VALUE)
+    @NotNull(message = ExceptionMessages.MISSING_REQUEST_PARAMETERS)
     private Integer weight ;
+
+    @OneToMany(mappedBy = "medication")
+    Set<Registration> registrations;
 
 }
