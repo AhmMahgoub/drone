@@ -3,7 +3,6 @@ package com.mahgoub.drone.entity;
 import com.mahgoub.drone.common.request.RegisterDroneRequest;
 import com.mahgoub.drone.enums.ModelEnum;
 import com.mahgoub.drone.enums.StateEnum;
-import com.mahgoub.drone.service.DroneService;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -23,6 +22,8 @@ import java.util.Set;
 @Setter
 @ToString
 public class Drone {
+    public Drone() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

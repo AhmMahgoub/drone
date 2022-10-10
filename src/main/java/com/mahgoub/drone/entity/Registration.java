@@ -7,6 +7,8 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Registration {
+    public Registration() {
+    }
 
     @Id
     long id;

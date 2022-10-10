@@ -1,4 +1,4 @@
-package com.mahgoub.drone.common.vo;
+package com.mahgoub.drone.exception;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

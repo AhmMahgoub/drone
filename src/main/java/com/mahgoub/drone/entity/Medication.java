@@ -14,6 +14,8 @@ import java.util.Set;
 @Setter
 @ToString
 public class Medication {
+    public Medication() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
