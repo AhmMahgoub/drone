@@ -39,7 +39,7 @@ public class Drone {
     private Integer weight ;
 
     @NotNull(message = ExceptionMessages.MISSING_REQUEST_PARAMETERS)
-    @Max(value = 100,message = ExceptionMessages.MISSING_REQUEST_PARAMETERS)
+    @Max(value = 100,message = ExceptionMessages.INVALID_BATTERY_PERCENTAGE)
     @Column(name = "battery_percentage", nullable = false)
     private Integer batteryPercentage = 100;
 
