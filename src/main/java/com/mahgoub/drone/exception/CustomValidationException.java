@@ -28,6 +28,7 @@ import java.util.List;
 public class CustomValidationException extends ResponseEntityExceptionHandler {
     private static final Logger LOGGER = LogManager.getLogger(CustomValidationException.class);
 
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex,

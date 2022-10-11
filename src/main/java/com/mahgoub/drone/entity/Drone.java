@@ -6,6 +6,7 @@ import com.mahgoub.drone.enums.StateEnum;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.domain.Page;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +15,16 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "drone")
 @Getter
 @Setter
-@ToString
 public class Drone {
+
     public Drone() {
     }
 
@@ -54,8 +57,24 @@ public class Drone {
     @Column(name = "state", nullable = false)
     private StateEnum stateEnum ;
 
-    @OneToMany(mappedBy = "drone")
-    Set<Registration> registrations;
+    @ManyToMany
+    @JoinTable(
+            name = "drone_medications",
+            joinColumns = @JoinColumn(name = "drone_id"),
+            inverseJoinColumns = @JoinColumn(name = "medication_id"))
+    Set<Medication> droneMedications;
+
+    public void addMedication(Medication medication) {
+        this.droneMedications.add(medication);
+        medication.getDrones().add(this);
+    }
+
+//    @OneToMany(mappedBy = "drone", fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    private Set<Medication> medications;
+
+//    @OneToMany(mappedBy = "drone")
+//    Set<Registration> registrations;
 
         public Drone(RegisterDroneRequest registerDroneRequest){
             this.serialNumber=registerDroneRequest.getSerialNumber();
