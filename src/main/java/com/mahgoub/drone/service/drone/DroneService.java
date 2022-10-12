@@ -2,6 +2,7 @@ package com.mahgoub.drone.service.drone;
 
 import com.mahgoub.drone.common.request.LoadDroneRequest;
 import com.mahgoub.drone.common.request.RegisterDroneRequest;
+import com.mahgoub.drone.common.response.DroneBatteryResponse;
 import com.mahgoub.drone.common.response.DroneResponse;
 import com.mahgoub.drone.common.response.MedicationResponse;
 import com.mahgoub.drone.entity.Drone;
@@ -17,5 +18,6 @@ public interface DroneService {
     public List<MedicationResponse> checkMedicationsByDrone(String serialNumber);
     public List<DroneResponse> checkAvailableDrones();
     public Integer findBatteryPercentageOfDrone(String serialNumber);
+    public void findDronesBatteryPercentage();
 
 }

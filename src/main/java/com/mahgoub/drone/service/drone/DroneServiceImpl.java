@@ -2,8 +2,10 @@ package com.mahgoub.drone.service.drone;
 
 import com.mahgoub.drone.common.request.LoadDroneRequest;
 import com.mahgoub.drone.common.request.RegisterDroneRequest;
+import com.mahgoub.drone.common.response.DroneBatteryResponse;
 import com.mahgoub.drone.common.response.DroneResponse;
 import com.mahgoub.drone.common.response.MedicationResponse;
+import com.mahgoub.drone.controller.DroneController;
 import com.mahgoub.drone.entity.Drone;
 import com.mahgoub.drone.entity.ExceptionMessages;
 import com.mahgoub.drone.entity.Medication;
@@ -12,6 +14,8 @@ import com.mahgoub.drone.exception.BusinessException;
 import com.mahgoub.drone.exception.CustomValidationException;
 import com.mahgoub.drone.repository.DroneRepository;
 import com.mahgoub.drone.service.medication.MedicationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -28,6 +32,7 @@ public class DroneServiceImpl implements DroneService {
     DroneRepository droneRepository;
     @Autowired
     MedicationService medicationService;
+    private static final Logger LOGGER = LoggerFactory.getLogger(DroneServiceImpl.class);
 
     @Override
     public Drone registerDrone(RegisterDroneRequest registerDroneRequest) {
@@ -84,5 +89,12 @@ public class DroneServiceImpl implements DroneService {
     @Override
     public Integer findBatteryPercentageOfDrone(String serialNumber) {
         return droneRepository.getBatteryPercentageBySerialNumber(serialNumber);
+    }
+
+    @Override
+    public void findDronesBatteryPercentage() {
+        droneRepository.findAll().forEach(o ->
+                LOGGER.info("serial Number : [{}] and Battery Percentage is [{}]"
+                        ,o.getSerialNumber(),o.getBatteryPercentage()));
     }
 }

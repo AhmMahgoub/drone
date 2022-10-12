@@ -22,4 +22,5 @@ public interface DroneRepository extends JpaRepository<Drone,Long>, JpaSpecifica
     @Query("select d.batteryPercentage from Drone d where d.serialNumber =:serialNumber")
     Integer getBatteryPercentageBySerialNumber(String serialNumber);
 
+    List<Drone> findAll();
 }
