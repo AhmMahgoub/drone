@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "f4fee57d-3444-499d-845e-18dd62018e13",
+		"name": "drone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17955108"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serialNumber\":\"3141\",\r\n    \"weight\":\"6000\",\r\n    \"batteryPercentage\":\"95\",\r\n    \"model\":\"LIGHT_WEIGHT\",\r\n    \"state\":\"IDLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/register/drone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"register",
+						"drone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadDrone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medicationCode\":[\"VITAMIN_A_123\",\"VITAMIN_B_424\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/load/drone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"load",
+						"drone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkDroneLoadMeds",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/check/drone/medication/?serialNumber=5000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"check",
+						"drone",
+						"medication",
+						""
+					],
+					"query": [
+						{
+							"key": "serialNumber",
+							"value": "5000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkIdleDrones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/check/available/drones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"check",
+						"available",
+						"drones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkDroneBatteryPercentage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/check/drone/battery/?serialNumber=5000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"check",
+						"drone",
+						"battery",
+						""
+					],
+					"query": [
+						{
+							"key": "serialNumber",
+							"value": "5000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
