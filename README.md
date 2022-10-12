@@ -27,7 +27,7 @@ git clone https://github.com/AhmMahgoub/drone.git
 ```
 * apply mvn clean install goal
 * start java -jar drone-0.0.1-SNAPSHOT.jar
-* use postman collection to send restful requests
+* use postman collection to send restful requests (collection attached with files)
 
 ### Test
 * test cases sould run in phase of maven install project
