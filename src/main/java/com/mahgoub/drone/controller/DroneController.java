@@ -4,13 +4,11 @@ import com.mahgoub.drone.common.request.LoadDroneRequest;
 import com.mahgoub.drone.common.request.RegisterDroneRequest;
 import com.mahgoub.drone.entity.Drone;
 import com.mahgoub.drone.service.drone.DroneService;
+import com.mahgoub.drone.service.medication.MedicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -20,6 +18,9 @@ public class DroneController {
 
     @Autowired
     DroneService droneService;
+
+    @Autowired
+    MedicationService medicationService;
 
     @PostMapping(path = "/register/drone", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> registerDrone(@RequestBody @Valid RegisterDroneRequest request) {
@@ -33,5 +34,18 @@ public class DroneController {
         return ResponseEntity.ok().body("loaded successfully");
     }
 
+    @GetMapping(path = "/check/drone/medication")
+    public ResponseEntity<?> checkMedicationsByDrone(@RequestParam("serialNumber") String serialNumber) {
+        return ResponseEntity.ok().body(droneService.checkMedicationsByDrone(serialNumber));
+    }
 
+    @GetMapping(path = "/check/available/drones")
+    public ResponseEntity<?> checkAvailableDrones() {
+        return ResponseEntity.ok().body(droneService.checkAvailableDrones());
+    }
+
+    @GetMapping(path = "/check/drone/battery")
+    public ResponseEntity<?> checkBatteryPercentageByDrone(@RequestParam("serialNumber") String serialNumber) {
+        return ResponseEntity.ok().body(droneService.findBatteryPercentageOfDrone(serialNumber));
+    }
 }

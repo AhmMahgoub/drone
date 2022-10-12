@@ -1,33 +1,33 @@
 -- Drone Insert
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
-VALUES ( '1000', 200, 100, 0, 0);
+VALUES ( '1000', 200, 20, 0, 0);
 
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
-VALUES ( '1500', 200, 100, 0, 0);
+VALUES ( '1500', 200, 20, 0, 0);
 
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
-VALUES ( '2000', 200, 100, 0, 0);
+VALUES ( '2000', 200, 20, 0, 0);
 
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
-VALUES ( '2500', 300, 100, 1, 0);
+VALUES ( '2500', 300, 20, 1, 0);
 
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
 VALUES ( '3000', 300, 100, 1, 0);
 
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
-VALUES ( '3500', 300, 100, 1, 0);
+VALUES ( '3500', 300, 20, 1, 0);
 
 INSERT INTO drone (serial_number,weight,battery_percentage,model,state)
-VALUES ( '4000', 400, 100, 2, 0);
+VALUES ( '4000', 400, 20, 2, 0);
 
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
-VALUES ( '4500', 400, 100, 2, 0);
+VALUES ( '4500', 400, 20, 2, 0);
 
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
-VALUES ( '5000', 500, 100, 3, 0);
+VALUES ( '5000', 500, 30, 3, 0);
 
 INSERT INTO drone ( serial_number,weight,battery_percentage,model,state)
-VALUES ( '5500', 500, 100, 3, 0);
+VALUES ( '5500', 500, 20, 3, 0);
 
 -- Medication Insert
 INSERT INTO medication ( name,weight,code,image)

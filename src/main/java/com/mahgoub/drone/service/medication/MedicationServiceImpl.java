@@ -17,4 +17,6 @@ public class MedicationServiceImpl implements MedicationService{
     public List<Medication> findAllMedicationsByCodes(List<String> codes) {
         return medicationRepository.findAllByCodeIn(codes);
     }
+
+
 }
